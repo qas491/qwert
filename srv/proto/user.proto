@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package="/";
+
+service UserServer {
+  // Sends a greeting
+  rpc Register (RegisterRequest) returns (RegisterReply) {}
+  rpc Login (LoginRequest) returns (LoginReply) {}
+}
+
+// The request message containing the user's name.
+message RegisterRequest {
+  string mobile = 1;
+  string password = 2;
+}
+
+// The response message containing the greetings
+message RegisterReply {
+  int64 code = 1;
+  string msg = 2;
+}
+message LoginRequest{
+  string mobile = 1;
+  string password = 2;
+}
+message LoginReply{
+  int64 code = 1;
+  string msg = 2;
+  int64 id =3;
+}
